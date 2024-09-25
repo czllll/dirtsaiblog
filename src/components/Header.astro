@@ -1,0 +1,24 @@
+---
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+---
+
+<header class="flex items-center justify-between p-4 bg-background">
+    <a href="/" class="flex items-center space-x-4">
+        <img src="/public/veg.png" alt="Logo" class="h-10 w-10" />
+        <h1 class="text-xl font-bold">DIRTSAI'S BLOG</h1>
+    </a>
+
+    <nav class="flex items-center space-x-4">
+        <Input type="search" placeholder="搜索..." />
+        <Button asChild variant="link">
+            <a href="/">Home</a>
+        </Button>
+        <Button asChild variant="link">
+            <a href="/blog">Blog</a>
+        </Button>
+        <Button asChild variant="link">
+            <a href="/about">About</a>
+        </Button>
+    </nav>
+</header>

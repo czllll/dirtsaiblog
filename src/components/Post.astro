@@ -1,0 +1,35 @@
+---
+import {type CollectionEntry} from "astro:content"
+import {Image} from "astro:assets"
+import { Card, CardDescription, CardHeader, CardTitle, CardContent } from "./ui/card";
+
+// import CategoryList from "./CategoryList.astro"
+
+type Props = {
+    post: CollectionEntry<"posts">
+}
+
+const {post} = Astro.props
+// const author = await getEntryBySlug("authors", post.data.author)
+---
+
+<Card className="flex overflow-hidden h-[28vh]">
+  <a href=`/blog/${post.slug}` class="w-2/5 object-cover" >
+    <Image src={post.data.image} alt="" />
+  </a>
+    <div class="w-1/2">
+      <CardHeader>
+        <a href=`/blog/${post.slug}` class="hover:text-teal-500">
+          <CardTitle>{post.data.title}</CardTitle>
+        </a>
+      </CardHeader>
+      <CardContent>
+        <!-- <p class="text-sm text-muted-foreground">
+          Created 7 days ago | 编程 > Linux | 编程 · Linux · 笔记 · 水文
+        </p> -->
+        <p class="mt-2 line-clamp-2" >
+          {post.body}
+        </p>
+      </CardContent>
+    </div>
+  </Card>

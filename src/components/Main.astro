@@ -1,0 +1,17 @@
+---
+import { getCollection } from "astro:content";
+import PostList from "./PostList.astro";
+import SideList from "./SideList.astro";
+const posts = await getCollection("posts")
+---
+
+<main class="flex flex-col mt-8  lg:flex-row px-2 lg:px-2 w-[85vw] mx-auto  min-w-[320px] transition-all duration-300 ease-in-out">
+    <div class="w-full lg:w-3/4  p-1 mb-6 lg:mb-0 lg:mr-6 transition-all duration-30 ease-in-out">
+      <PostList posts={posts}/>
+    </div>
+    
+    <div class="w-full lg:w-1/4 p-1 overflow-hidden transition-all duration-30 ease-in-out
+                max-h-0 opacity-0 lg:max-h-[1000px] lg:opacity-100">
+      <SideList />
+    </div>
+  </main>

@@ -1,0 +1,64 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import H1 from "../../components/H1.astro";
+import Main from "../../components/Main.astro";
+import { Image } from "astro:assets";
+import "../../styles/globals.css";
+import SideList from "@/components/SideList.astro";
+
+export const getStaticPaths = async () => {
+    const posts = await getCollection("posts");
+    const paths = posts.map((post: { slug: any }) => {
+        return {
+            params: {
+                slug: post.slug,
+            },
+            props: {
+                post,
+            },
+        };
+    });
+    return paths;
+};
+
+type Props = {
+    post: CollectionEntry<"posts">;
+};
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<Layout title={post.data.title}>
+    <div class="relative w-full h-[50vh] min-h-[400px] overflow-hidden">
+        <Image 
+          src={post.data.image}
+          alt="Header background" 
+          class="absolute inset-0 w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+          <h1 class="text-4xl font-bold mb-4">{post.data.title}</h1>
+          <div class="flex items-center space-x-4 text-sm">
+            <span>{post.date}</span>
+            <span>{post.category}</span>
+            <span>{post.readingTime} mins read</span>
+            <span>{post.views} views</span>
+          </div>
+        </div>
+      </div>
+    <div class="flex flex-col mt-8 lg:flex-row px-2 lg:px-2 w-[85vw] mx-auto min-w-[320px] transition-all duration-300 ease-in-out">
+        <div class="w-full lg:w-3/4 p-1 mb-6 lg:mb-0 lg:mr-6 transition-all duration-300 ease-in-out">
+            <div class="prose prose-lg mx-auto max-w-none">
+                <Content />
+            </div>
+        </div>
+        
+        <div class="w-full lg:w-1/4 p-1 overflow-hidden transition-all duration-300 ease-in-out
+                    max-h-0 opacity-0 lg:max-h-[1000px] lg:opacity-100">
+            <SideList />
+        </div>
+    </div>
+</Layout>

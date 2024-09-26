@@ -3,12 +3,23 @@ import Layout from '../layouts/Layout.astro';
 import H1 from '../components/H1.astro';
 import Main from '../components/Main.astro'
 import '../styles/globals.css'
+import { getCollection } from 'astro:content';
+import BlogPage from './blog/[page].astro';
+
+const allPosts = await getCollection('posts');
+const firstPagePosts = allPosts.slice(0, 8);  // 假设每页10篇文章
+const page = {
+  data: firstPagePosts,
+  currentPage: 1,
+  lastPage: Math.ceil(allPosts.length / 8),
+  url: {
+    current: '/',
+    next: '/2'
+  }
+};
 ---
 
-<Layout title="Dirtsai's Blog">
-	<Main>
-		<H1 text="czl" />
-		
-	</Main>
+<Layout title="Dirtsai">
+	<Main page={page} />
 </Layout>
 

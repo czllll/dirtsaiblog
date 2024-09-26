@@ -50,8 +50,17 @@ export default {
     				'4': 'hsl(var(--chart-4))',
     				'5': 'hsl(var(--chart-5))'
     			}
-    		}
+    		},
+			rotate: {
+				'360': '360deg'
+			},
+			fontFamily: {
+				'sans': ['Roboto', 'Arial', 'sans-serif'],
+				'serif': ['Merriweather', 'Georgia', 'serif'],
+				'mono': ['Fira Code', 'Consolas', 'monospace'],
+			  }
     	}
     },
+
 	plugins: [require("@tailwindcss/typography"), require("tailwindcss-animate")],
 }

@@ -1,33 +1,36 @@
 ---
-// ProfileCard.astro
 import { Card } from '@/components/ui/card'
 import { Avatar } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
+import AvatarImage from './AvatarImage.astro'
+import { getCollection, type CollectionEntry } from 'astro:content';
+const allBlogPosts = await getCollection('posts');
+const totalPosts = allBlogPosts.length;
+async function getTags() {
+  const posts = await getCollection('posts');
+  const tags = [...new Set(posts.map((post) => post.data.tags).flat())];
+  return tags.length;
+}
+
 ---
 
 <Card className="w-full bg-white shadow-lg rounded-lg overflow-hidden">
   <div class="p-8">
     <div class="flex flex-col items-center">
-      <Avatar className="w-24 h-24 mb-4">
-        <img src="/public/veg.png" alt="Dirtsai" class="rounded-full" />
-      </Avatar>
+      <AvatarImage src="/veg.png" alt="Dirtsai" />
       <h2 class="text-xl font-semibold mb-1">Dirtsai</h2>
       <p class="text-sm text-gray-500 mb-4">海浪滔滔我不怕</p>
-      <div class="flex justify-between w-full mb-4">
-        <div class="text-center">
-          <p class="font-bold">93</p>
+      <div class="flex justify-between w-full mb-4 px-10">
+        <a class="text-center" href="/blog">
+          <p class="font-bold">{totalPosts}</p>
           <p class="text-xs text-gray-500">Articles</p>
-        </div>
-        <div class="text-center">
-          <p class="font-bold">55</p>
+        </a>
+        <a class="text-center" href="/tags">
+          <p class="font-bold">{getTags()}</p>
           <p class="text-xs text-gray-500">Tags</p>
-        </div>
-        <div class="text-center">
-          <p class="font-bold">38</p>
-          <p class="text-xs text-gray-500">Categories</p>
-        </div>
+        </a>
       </div>
-      <Button className="w-full bg-green-500 hover:bg-green-600 text-white mt-4">
+      <Button className="w-full bg-gradient-to-r from-teal-400 to-cyan-400 hover:bg-gradient-to-r hover:from-teal-500 hover:to-cyan-500 text-white mt-4">
         Follow Me
       </Button>
     </div>

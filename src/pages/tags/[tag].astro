@@ -1,0 +1,39 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import '@/styles/globals.css'
+import PostList from '@/components/PostList.astro';
+import PostfileCard from '@/components/ProfileCard.astro'
+import H1 from '@/components/H1.astro';
+const posts = await getCollection("posts")
+
+export const getStaticPaths = async () => {
+  const allPosts = await getCollection('posts');
+  const uniqueTags = [...new Set(allPosts.flatMap(post => post.data.tags || []))];
+  return uniqueTags.map(tag => {
+    const filteredPosts = allPosts.filter(post => post.data.tags?.includes(tag));
+    return {
+      params: { tag },
+      props: { posts: filteredPosts },
+    };
+  });
+};
+
+const { tag } =  Astro.params
+---
+
+<Layout title="Blog">
+    
+    <div class="flex flex-col mt-24  lg:flex-row px-2 lg:px-2 max-w-7xl  mx-auto  min-w-[320px]">
+        
+        <div class="w-full lg:w-3/4  p-1 mb-6 lg:mb-0 lg:mr-3 transition-all duration-300 ease-linear">
+            <H1 text=`Tag - #${tag}` />
+            <PostList posts={posts} tag={tag}/>
+          </div>
+         
+        <div class="w-full lg:w-1/4 p-1 overflow-hidden transition duration-300 ease-linear
+                    max-h-0 opacity-0 lg:max-h-[1000px] lg:opacity-100">
+          <PostfileCard />
+        </div>
+      </div>
+</Layout>

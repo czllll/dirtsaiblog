@@ -1,0 +1,45 @@
+---
+interface Tag {
+  tag: string;
+  count: number;
+}
+
+interface Props {
+  tags: Tag[];
+}
+
+const { tags } = Astro.props;
+
+const maxCount = Math.max(...tags.map(t => t.count));
+const minCount = Math.min(...tags.map(t => t.count));
+
+function getFontSize(count: number): string {
+  const minSize = 8;
+  const maxSize = 2;
+  const size = minSize + (count - minCount) * (maxSize - minSize) / (maxCount - minCount);
+  return `${size.toFixed(2)}rem`;
+}
+
+function getRandomColorClass(): string {
+  const colors = [
+    'text-blue-500 hover:text-blue-600',
+    'text-green-500 hover:text-green-600',
+    'text-red-500 hover:text-red-600',
+    'text-purple-500 hover:text-purple-600',
+    'text-yellow-500 hover:text-yellow-600',
+  ];
+  return colors[Math.floor(Math.random() * colors.length)];
+}
+---
+
+<div class="flex flex-wrap h-full justify-center items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
+  {tags.map(({ tag, count }) => (
+    <a
+      href={`/tags/${tag}`}
+      class={`inline-block p-1 m-1 rounded-md transition-all duration-300 hover:scale-110 hover:underline ${getRandomColorClass()}`}
+      style={`font-size: ${getFontSize(count)};`}
+    >
+      {tag}
+    </a>
+  ))}
+</div>

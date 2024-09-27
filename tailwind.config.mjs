@@ -55,9 +55,9 @@ export default {
 				'360': '360deg'
 			},
 			fontFamily: {
-				'sans': ['Roboto', 'Arial', 'sans-serif'],
-				'serif': ['Merriweather', 'Georgia', 'serif'],
-				'mono': ['Fira Code', 'Consolas', 'monospace'],
+				'sans': ['Roboto', 'Helvetica', 'Tahoma', 'Arial', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', 'Noto Sans CJK', 'sans-serif'],
+				'serif': ['Georgia', 'Times New Roman', 'PMingLiu', 'STSong', 'SimSun', 'WenQuanYi Bitmap Song', 'Noto Serif CJK', 'serif'],
+				'mono': ['JetBrainsMono', 'Source Code Pro', 'Monaco', 'Menlo', 'Consolas', 'Courier New', 'Courier', 'monospace'],
 			  }
     	}
     },

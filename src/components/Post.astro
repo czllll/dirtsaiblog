@@ -10,7 +10,6 @@ import {
   CardTitle,
   CardContent,
 } from "./ui/card";
-import { marked } from "marked";
 
 // import CategoryList from "./CategoryList.astro"
 
@@ -20,11 +19,11 @@ type Props = {
 
 const { post } = Astro.props;
 
-function getTagUrl(tag: string | number | boolean) {
+export function getTagUrl(tag: string | number | boolean) {
   return `/tags/${encodeURIComponent(tag)}`;
 }
 
-function formatDate(dateString: string) {
+export function formatDate(dateString: string) {
   const date = parse(dateString, 'dd/MM/yyyy', new Date());
   return format(date, 'yyyy-MM-dd');
 }
@@ -32,18 +31,18 @@ function formatDate(dateString: string) {
 
 ---
 
-<Card className="flex overflow-hidden h-[28vh]">
+<Card className="flex overflow-hidden h-[28vh] shadow-lg">
   <a href=`/blog/${post.slug}` class="w-2/5 object-cover">
     <Image src={post.data.image} alt="" class="w-full h-full object-cover" />
   </a>
   <div class="flex flex-col w-3/5 px-6 justify-center">
     <CardHeader className="py-3">
       <a href=`/blog/${post.slug}` class="hover:text-teal-500">
-        <CardTitle className="font-normal">{post.data.title}</CardTitle>
+        <CardTitle className="tracking-wide leading-normal">{post.data.title}</CardTitle>
       </a>
     </CardHeader>
     <CardContent>
-      <p class="text-sm text-muted-foreground">
+      <p class="text-md text-muted-foreground">
         {formatDate(post.data.date)} |
         {post.data.tags.map((tag, index) => (
           <>
@@ -58,7 +57,7 @@ function formatDate(dateString: string) {
         ))}
       </p>
       <div class="mt-3 text-lg line-clamp-2">
-        <span set:html={marked.parse(post.body)}></span>
+        <span set:html={post.data.description}></span>
       </div>
     </CardContent>
   </div>

@@ -6,6 +6,8 @@ import { Image } from "astro:assets";
 import "../../styles/globals.css";
 import ProfileCard from "@/components/ProfileCard.astro";
 import SideContent from "@/components/SideContent.astro";
+import {formatDate, getTagUrl} from "../../components/Post.astro";
+import { getReadingTime } from '../../utils/readingTime';
 
 export const getStaticPaths = async () => {
     const posts = await getCollection("posts");
@@ -27,7 +29,11 @@ type Props = {
 };
 
 const { post } = Astro.props;
+
 const { Content } = await post.render();
+
+const readingTimeStats = getReadingTime(post.body);
+
 ---
 
 <Layout title={post.data.title}>
@@ -44,9 +50,26 @@ const { Content } = await post.render();
         <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
             <h1 class="text-4xl font-bold mb-4">{post.data.title}</h1>
             <div class="flex items-center space-x-4 text-sm">
-                <span>date</span>
-                <span>1 mins read</span>
+                <span>{formatDate(post.data.date)</span>
+                <span>{Math.ceil(readingTimeStats.minutes)} mins read</span>
                 <span>1 views</span>
+                <span>
+                        {
+                            post.data.tags.map((tag, index) => (
+                                <>
+                                    <a
+                                        href={getTagUrl(tag)}
+                                        class="hover:underline text-teal-500"
+                                    >
+                                        #{tag}
+                                    </a>
+                                    {index < post.data.tags.length - 1
+                                        ? " "
+                                        : ""}
+                                </>
+                            ))
+                        }
+                    </span>
             </div>
         </div>
     </div>
@@ -65,7 +88,6 @@ const { Content } = await post.render();
             <div id="sticky-wrapper" class="transition-[top] duration-300 ease-linear sticky top-[var(--sticky-top,0px)] pt-1">
                 <SideContent post={post}/>
             </div>
-            -----{post.data.tags}-------
         </div>
     </div>
 </Layout>

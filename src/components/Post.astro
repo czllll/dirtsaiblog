@@ -20,11 +20,11 @@ type Props = {
 
 const { post } = Astro.props;
 
-function getTagUrl(tag) {
+function getTagUrl(tag: string | number | boolean) {
   return `/tags/${encodeURIComponent(tag)}`;
 }
 
-function formatDate(dateString) {
+function formatDate(dateString: string) {
   const date = parse(dateString, 'dd/MM/yyyy', new Date());
   return format(date, 'yyyy-MM-dd');
 }

@@ -24,7 +24,7 @@ const createPageUrl = (pageNum: number) => {
   return `/blog/${pageNum}`; 
 };
 
-function getPageNumbers(current, total) {
+function getPageNumbers(current: number, total: number) {
   const delta = 1; // 当前页左右显示的页数
   const range = [];
   const rangeWithDots = [];
@@ -70,7 +70,7 @@ const pageNumbers = getPageNumbers(currentPage, totalPages);
           <PaginationEllipsis />
         ) : (
           <PaginationLink 
-            href={createPageUrl(pageNum)} 
+            href={createPageUrl(pageNum as number)} 
             isActive={pageNum === currentPage}
           >
             {pageNum}

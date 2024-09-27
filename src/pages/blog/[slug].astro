@@ -2,8 +2,6 @@
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
-import H1 from "../../components/H1.astro";
-import Main from "../../components/Main.astro";
 import { Image } from "astro:assets";
 import "../../styles/globals.css";
 import ProfileCard from "@/components/ProfileCard.astro";
@@ -46,10 +44,9 @@ const { Content } = await post.render();
         <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
             <h1 class="text-4xl font-bold mb-4">{post.data.title}</h1>
             <div class="flex items-center space-x-4 text-sm">
-                <span>{post.date}</span>
-                <span>{post.category}</span>
-                <span>{post.readingTime} mins read</span>
-                <span>{post.views} views</span>
+                <span>date</span>
+                <span>1 mins read</span>
+                <span>1 views</span>
             </div>
         </div>
     </div>

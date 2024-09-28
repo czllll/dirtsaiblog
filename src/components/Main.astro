@@ -3,11 +3,14 @@ import { getCollection } from "astro:content";
 import PostList from "./PostList.astro";
 import ProfileCard from "./ProfileCard.astro";
 import PaginationNa from "./PaginationNa.astro";
+import SideTags from "./SideTags.astro";
+import SideInfo from "./SideInfo.astro";
 const posts = await getCollection("posts");
-
 const { page } = Astro.props;
 
 const {currentPage, lastPage: totalPages } = page;
+
+
 ---
 
 <main
@@ -24,5 +27,7 @@ const {currentPage, lastPage: totalPages } = page;
                 max-h-0 opacity-0 lg:max-h-[1000px] lg:opacity-100"
   >
     <ProfileCard />
+    <SideTags posts={posts}/>
+    <SideInfo />
   </div>
 </main>

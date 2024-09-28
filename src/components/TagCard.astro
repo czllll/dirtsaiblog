@@ -15,9 +15,12 @@ const maxCount = Math.max(...tags.map(t => t.count));
 const minCount = Math.min(...tags.map(t => t.count));
 
 function getFontSize(count: number): string {
-  const minSize = 8;
-  const maxSize = 2;
+  const minSize = 2;
+  const maxSize = 3;
   const size = minSize + (count - minCount) * (maxSize - minSize) / (maxCount - minCount);
+  if (maxCount === minCount) {
+    return `${((minSize + maxSize) / 2).toFixed(2)}rem`;
+  }
   return `${size.toFixed(2)}rem`;
 }
 
@@ -33,14 +36,14 @@ function getRandomColorClass(): string {
 }
 ---
 
-<div class="flex flex-wrap h-full justify-center items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
+<div class="flex w-full h-full justify-center items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
   {tags.map(({ tag, count }) => (
     <a
       href={`/tags/${tag}`}
       class={`inline-block p-1 m-1 rounded-md transition-all duration-300 hover:scale-110 hover:underline ${getRandomColorClass()}`}
       style={`font-size: ${getFontSize(count)};`}
     >
-      {tag}
+      #{tag}
     </a>
   ))}
 </div>

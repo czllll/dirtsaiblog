@@ -1,4 +1,5 @@
 ---
+import Foot from "@/components/Foot.astro";
 import Header from "../components/Header.astro"
 import { ViewTransitions } from 'astro:transitions';
 
@@ -25,10 +26,12 @@ const { title, description = "A community of music producers and",  image = "/ia
 
 		
 	</head>
-	<body class="min-h-screen bg-gradient-to-br from-stone-50 to-orange-50 bg-fixed bg-no-repeat">
+	<body class="flex flex-col min-h-screen bg-gradient-to-br from-stone-50 to-orange-50 bg-fixed bg-no-repeat">
 		<Header />
 		<slot />
+		<Foot />
 	</body>
+	
 </html>
 
 

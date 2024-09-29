@@ -10,13 +10,15 @@ const filteredPosts = tag
     ? posts.filter(post => post.data.tags && post.data.tags.includes(tag))
     : posts;
 
-
+const sortedPosts = filteredPosts.sort((a, b) => {
+    return new Date(b.data.date).getTime() - new Date(a.data.date).getTime();
+});
 ---
 
 <div
     class="grid grid-cols-1 gap-x-16 gap-y-5 max-md:grid-cols-1 mb-6"
 >
-    {filteredPosts.map(post => <Post post={post} />)}
+    {sortedPosts.map(post => <Post post={post} />)}
 </div>
 
 

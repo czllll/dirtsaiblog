@@ -16,7 +16,7 @@ export default defineConfig({
   redirects: {
     '/blog': '/blog/1'
   },
-  output: 'server',
+  output: 'hybrid',
   adapter: vercel({
     webAnalytics: { enabled: true }
   }),

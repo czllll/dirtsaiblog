@@ -20,6 +20,7 @@ const {currentPage, lastPage: totalPages } = page;
     class="w-full lg:w-3/4 p-1 mb-6 lg:mb-0 lg:mr-3 transition-all duration-300 ease-linear"
   >
     <PostList posts={page.data} />
+    
     <PaginationNa currentPage={currentPage} totalPages={totalPages} baseUrl="/blog"/>
   </div>
   <div

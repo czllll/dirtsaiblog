@@ -4,10 +4,9 @@ import H1 from '../components/H1.astro';
 import Main from '../components/Main.astro'
 import '../styles/globals.css'
 import { getCollection } from 'astro:content';
-import BlogPage from './blog/[page].astro';
 
 const allPosts = await getCollection('posts');
-const firstPagePosts = allPosts.slice(0, 8);  // 假设每页10篇文章
+const firstPagePosts = allPosts.slice(0, 8);  
 const page = {
   data: firstPagePosts,
   currentPage: 1,

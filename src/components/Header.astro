@@ -1,6 +1,7 @@
 ---
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import Search from "astro-pagefind/components/Search";
+
 import ThemeToggle from "./ThemeToggle.astro";
 ---
 
@@ -13,6 +14,8 @@ import ThemeToggle from "./ThemeToggle.astro";
     </a>
 
     <nav class="flex items-center space-x-4">
+        <Search id="search" className="pagefind-ui" uiOptions={{ showImages: false }} />
+
         <ThemeToggle />
         <Button asChild variant="link">
             <a href="/">Home</a>

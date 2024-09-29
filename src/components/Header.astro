@@ -12,7 +12,7 @@ import ThemeToggle from "./ThemeToggle.astro";
 >
     <a href="/" class="flex items-center space-x-4">
         <img src="/veg.png" alt="Logo" class="h-10 w-10" />
-        <h1 class="text-xl font-bold">DIRTSAI</h1>
+        <p class="text-xl font-bold">DIRTSAI</p>
     </a>
 
     <nav class="flex items-center space-x-4">
@@ -25,17 +25,93 @@ import ThemeToggle from "./ThemeToggle.astro";
         </div>
         <ThemeToggle />
         <Button asChild variant="link">
-            <a href="/">Home</a>
-        </Button>
+            <a href="/" class="
+              text-xl font-bold 
+              relative
+              inline-block
+              group
+            ">
+              Home
+              <span class="
+                absolute left-0 bottom-[-8px] 
+                w-full h-1 
+                bg-teal-500 
+                origin-top
+                scale-y-0
+                group-hover:scale-y-100
+                transition-transform duration-300 ease-linear
+                before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0
+                before:bg-teal-500 before:scale-y-0 before:origin-bottom
+                group-hover:before:scale-y-100 before:transition-transform before:duration-300 before:ease-out
+              "></span>
+            </a>
+          </Button>
+          <Button asChild variant="link">
+            <a href="/tags" class="
+              text-xl font-bold 
+              relative
+              inline-block
+              group
+            ">
+              Tags
+              <span class="
+                absolute left-0 bottom-[-8px] 
+                w-full h-1 
+                bg-teal-500 
+                origin-top
+                scale-y-0
+                group-hover:scale-y-100
+                transition-transform duration-300 ease-linear
+                before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0
+                before:bg-teal-500 before:scale-y-0 before:origin-bottom
+                group-hover:before:scale-y-100 before:transition-transform before:duration-300 before:ease-out
+              "></span>
+            </a>
+          </Button>
         <Button asChild variant="link">
-            <a href="/tags">Tags</a>
-        </Button>
-        <Button asChild variant="link">
-            <a href="/blog/1">Blog</a>
-        </Button>
-        <Button asChild variant="link">
-            <a href="/about">About</a>
-        </Button>
+            <a href="/blog" class="
+              text-xl font-bold 
+              relative
+              inline-block
+              group
+            ">
+              Blog
+              <span class="
+                absolute left-0 bottom-[-8px] 
+                w-full h-1 
+                bg-teal-500 
+                origin-top
+                scale-y-0
+                group-hover:scale-y-100
+                transition-transform duration-300 ease-linear
+                before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0
+                before:bg-teal-500 before:scale-y-0 before:origin-bottom
+                group-hover:before:scale-y-100 before:transition-transform before:duration-300 before:ease-out
+              "></span>
+            </a>
+          </Button>
+          <Button asChild variant="link">
+            <a href="/about" class="
+              text-xl font-bold 
+              relative
+              inline-block
+              group
+            ">
+              About
+              <span class="
+                absolute left-0 bottom-[-8px] 
+                w-full h-1 
+                bg-teal-500 
+                origin-top
+                scale-y-0
+                group-hover:scale-y-100
+                transition-transform duration-300 ease-linear
+                before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0
+                before:bg-teal-500 before:scale-y-0 before:origin-bottom
+                group-hover:before:scale-y-100 before:transition-transform before:duration-300 before:ease-out
+              "></span>
+            </a>
+          </Button>
     </nav>
 </header>
 
@@ -96,7 +172,7 @@ import ThemeToggle from "./ThemeToggle.astro";
     @apply h-11 bg-transparent !important;
   }
   .search-wrapper :global(.pagefind-ui .pagefind-ui__drawer) {
-    @apply  bg-background/70  pl-5 pr-2 rounded-md shadow-md h-auto !important;
+    @apply  bg-background text-foreground  pl-5 pr-2 rounded-md shadow-md h-auto !important;
   }
   .search-wrapper :global(.pagefind-ui .pagefind-ui__message) {
     @apply  pt-0 !important;

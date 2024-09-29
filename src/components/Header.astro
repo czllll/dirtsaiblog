@@ -5,17 +5,24 @@ import Search from "astro-pagefind/components/Search";
 import ThemeToggle from "./ThemeToggle.astro";
 ---
 
-<header class="flex items-center justify-between p-2 bg-background/30 px-8
+<header
+    class="flex items-center justify-between p-2 bg-background/30 px-8
                 fixed top-0 left-0 right-0 z-50
-                transition-all duration-300 ease-linear shadow-md rounded-lg ">
+                transition-all duration-300 ease-linear shadow-md rounded-lg"
+>
     <a href="/" class="flex items-center space-x-4">
         <img src="/veg.png" alt="Logo" class="h-10 w-10" />
         <h1 class="text-xl font-bold">DIRTSAI</h1>
     </a>
 
     <nav class="flex items-center space-x-4">
-        <Search id="search" className="pagefind-ui" uiOptions={{ showImages: false }} />
-
+        <div class="search-wrapper">
+            <Search
+                id="search"
+                className="pagefind-ui pagefind-ui--custom"
+                uiOptions={{ showImages: false }}
+            />
+        </div>
         <ThemeToggle />
         <Button asChild variant="link">
             <a href="/">Home</a>
@@ -35,39 +42,63 @@ import ThemeToggle from "./ThemeToggle.astro";
 <script>
     function setupHeaderScroll() {
         let lastScrollY = window.scrollY;
-        const header = document.querySelector('header');
-        const stickyWrapper = document.getElementById('sticky-wrapper');
-        
+        const header = document.querySelector("header");
+        const stickyWrapper = document.getElementById("sticky-wrapper");
+
         if (header) {
             const updateHeaderHeight = () => {
                 const headerHeight = header.offsetHeight;
-                document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
+                document.documentElement.style.setProperty(
+                    "--header-height",
+                    `${headerHeight}px`,
+                );
             };
 
             const updateHeader = () => {
                 const currentScrollY = window.scrollY;
                 if (currentScrollY > lastScrollY) {
-                    header.classList.add('-translate-y-full');
-                    header.classList.remove('translate-y-0');
+                    header.classList.add("-translate-y-full");
+                    header.classList.remove("translate-y-0");
                     if (stickyWrapper) {
-                        stickyWrapper.style.setProperty('--sticky-top', '0px');
+                        stickyWrapper.style.setProperty("--sticky-top", "0px");
                     }
                 } else {
-                    header.classList.add('translate-y-0');
-                    header.classList.remove('-translate-y-full');
+                    header.classList.add("translate-y-0");
+                    header.classList.remove("-translate-y-full");
                     if (stickyWrapper) {
-                        stickyWrapper.style.setProperty('--sticky-top', 'var(--header-height)');
+                        stickyWrapper.style.setProperty(
+                            "--sticky-top",
+                            "var(--header-height)",
+                        );
                     }
                 }
                 lastScrollY = currentScrollY;
             };
 
-            window.addEventListener('scroll', updateHeader);
-            window.addEventListener('resize', updateHeaderHeight);
+            window.addEventListener("scroll", updateHeader);
+            window.addEventListener("resize", updateHeaderHeight);
             updateHeaderHeight();
             updateHeader();
         }
     }
 
-    document.addEventListener('astro:page-load', setupHeaderScroll);
+    document.addEventListener("astro:page-load", setupHeaderScroll);
 </script>
+
+<style>
+  .search-wrapper :global(.pagefind-ui) {
+    @apply h-11 overflow-visible;
+  }
+  .search-wrapper :global(.pagefind-ui .pagefind-ui__search-input) {
+    @apply h-11 ; /* 添加这行来明确设置输入框的高度 */
+  }
+  .search-wrapper :global(.pagefind-ui .pagefind-ui__search-clear) {
+    @apply h-10 bg-transparent !important;
+  }
+  .search-wrapper :global(.pagefind-ui .pagefind-ui__drawer) {
+    @apply  bg-background/70  pl-5 pr-2 rounded-md shadow-md h-auto !important;
+  }
+  .search-wrapper :global(.pagefind-ui .pagefind-ui__message) {
+    @apply  pt-0 !important;
+  }
+</style>

@@ -22,7 +22,7 @@
       const sunIcon = document.getElementById('sun-icon');
       const moonIcon = document.getElementById('moon-icon');
   
-      const setTheme = (theme) => {
+      const setTheme = (theme: string | null) => {
         if (theme === 'dark') {
           document.documentElement.classList.add('dark');
         } else {

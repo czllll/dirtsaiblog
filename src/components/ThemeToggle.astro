@@ -1,5 +1,9 @@
-<button id="theme-toggle" type="button" class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background hover:bg-accent hover:text-accent-foreground h-10 w-10">
-    <svg id="sun-icon" class="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+---
+const { class: className } = Astro.props;
+---
+
+<button type="button" class={`theme-toggle ${className} inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background hover:bg-accent hover:text-accent-foreground h-10 w-10`}>
+    <svg class="sun-icon h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <circle cx="12" cy="12" r="4"></circle>
       <path d="M12 2v2"></path>
       <path d="M12 20v2"></path>
@@ -10,7 +14,7 @@
       <path d="m6.34 17.66-1.41 1.41"></path>
       <path d="m19.07 4.93-1.41 1.41"></path>
     </svg>
-    <svg id="moon-icon" class="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <svg class="moon-icon absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
     </svg>
     <span class="sr-only">Toggle theme</span>
@@ -18,7 +22,7 @@
 
 <script>
   function setupTheme() {
-    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggles = document.querySelectorAll('.theme-toggle');
     const html = document.documentElement;
 
     function setTheme(isDark: boolean) {
@@ -37,19 +41,13 @@
       setTheme(savedTheme === 'dark' || (!savedTheme && prefersDark));
     }
 
-    if (themeToggle) {
-      themeToggle.addEventListener('pointerdown', (e) => {
+    themeToggles.forEach(toggle => {
+      toggle.addEventListener('click', (e) => {
         e.preventDefault();
         toggleTheme();
       });
 
-      themeToggle.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          toggleTheme();
-        }
-      });
-    }
+    });
 
     initTheme();
 
@@ -70,7 +68,7 @@
 </script>
 
 <style>
-  #theme-toggle {
+  .theme-toggle {
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
     cursor: pointer;

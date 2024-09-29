@@ -1,17 +1,19 @@
 ---
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import ThemeToggle from "./ThemeToggle.astro";
 ---
 
-<header class="flex items-center justify-between p-2 bg-background/70 px-8
+<header class="flex items-center justify-between p-2 bg-background/30 px-8
                 fixed top-0 left-0 right-0 z-50
-                transition-all duration-300 ease-linear shadow-md rounded-full ">
+                transition-all duration-300 ease-linear shadow-md rounded-lg ">
     <a href="/" class="flex items-center space-x-4">
         <img src="/veg.png" alt="Logo" class="h-10 w-10" />
         <h1 class="text-xl font-bold">DIRTSAI</h1>
     </a>
 
     <nav class="flex items-center space-x-4">
+        <ThemeToggle />
         <Button asChild variant="link">
             <a href="/">Home</a>
         </Button>

@@ -11,7 +11,6 @@ import {
   CardContent,
 } from "./ui/card";
 
-// import CategoryList from "./CategoryList.astro"
 
 type Props = {
   post: CollectionEntry<"posts">;
@@ -31,9 +30,9 @@ export function formatDate(dateString: string) {
 
 ---
 
-<Card className="flex overflow-hidden h-60 shadow-lg">
+<Card className="flex overflow-hidden h-60 shadow-lg bg-background/70">
   <a href=`/blog/${post.slug}` class="w-2/5 object-cover">
-    <Image src={post.data.image} alt="" class="w-full h-full object-cover" />
+    <img src={post.data.image} alt="" class="w-full h-full object-cover" />
   </a>
   <div class="flex flex-col w-3/5 px-6 justify-center">
     <CardHeader className="py-3">

@@ -39,7 +39,7 @@ const readingTimeStats = getReadingTime(post.body);
 
 <Layout title={post.data.title}>
     <div class="relative w-full h-[50vh] min-h-[400px] overflow-hidden">
-        <Image
+        <img
             src={post.data.image}
             alt="Header background"
             class="absolute inset-0 w-full h-full object-cover"
@@ -78,9 +78,8 @@ const readingTimeStats = getReadingTime(post.body);
         class="flex flex-col mt-8 lg:flex-row px-2 w-[85vw] mx-auto min-w-[320px]"
     >
         <div class="w-full lg:w-3/4 p-1 lg:mb-0 lg:mr-6 transition-all duration-300 ease-linear">
-            <div class="prose prose-lg mx-auto max-w-none mb-16">
+            <div class="prose prose-lg dark:prose-invert mx-auto max-w-none mb-16">
                 <Content />
-                
             </div>
         </div>
 

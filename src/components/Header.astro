@@ -4,6 +4,7 @@ import Search from "astro-pagefind/components/Search";
 
 import ThemeToggle from "./ThemeToggle.astro";
 ---
+
 <header
     class="flex items-center justify-between p-2 bg-background/30 px-4 sm:px-8
                 fixed top-0 left-0 right-0 z-50
@@ -24,129 +25,143 @@ import ThemeToggle from "./ThemeToggle.astro";
         </div>
         <ThemeToggle />
         <Button asChild variant="link">
-            <a href="/" class="
-              text-xl font-bold 
+            <a
+                href="/"
+                class="text-xl font-bold
               relative
               inline-block
-              group
-            ">
-              Home
-              <span class="
-                absolute left-0 bottom-[-8px] 
-                w-full h-1 
-                bg-teal-500 
+              group"
+            >
+                Home
+                <span
+                    class="absolute left-0 bottom-[-8px]
+                w-full h-1
+                bg-teal-500
                 origin-top
                 scale-y-0
                 group-hover:scale-y-100
                 transition-transform duration-300 ease-linear
                 before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0
                 before:bg-teal-500 before:scale-y-0 before:origin-bottom
-                group-hover:before:scale-y-100 before:transition-transform before:duration-300 before:ease-out
-              "></span>
+                group-hover:before:scale-y-100 before:transition-transform before:duration-300 before:ease-out"
+                ></span>
             </a>
-          </Button>
-          <Button asChild variant="link">
-            <a href="/tags" class="
-              text-xl font-bold 
-              relative
-              inline-block
-              group
-            ">
-              Tags
-              <span class="
-                absolute left-0 bottom-[-8px] 
-                w-full h-1 
-                bg-teal-500 
-                origin-top
-                scale-y-0
-                group-hover:scale-y-100
-                transition-transform duration-300 ease-linear
-                before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0
-                before:bg-teal-500 before:scale-y-0 before:origin-bottom
-                group-hover:before:scale-y-100 before:transition-transform before:duration-300 before:ease-out
-              "></span>
-            </a>
-          </Button>
+        </Button>
         <Button asChild variant="link">
-            <a href="/blog" class="
-              text-xl font-bold 
+            <a
+                href="/tags"
+                class="text-xl font-bold
               relative
               inline-block
-              group
-            ">
-              Blog
-              <span class="
-                absolute left-0 bottom-[-8px] 
-                w-full h-1 
-                bg-teal-500 
+              group"
+            >
+                Tags
+                <span
+                    class="absolute left-0 bottom-[-8px]
+                w-full h-1
+                bg-teal-500
                 origin-top
                 scale-y-0
                 group-hover:scale-y-100
                 transition-transform duration-300 ease-linear
                 before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0
                 before:bg-teal-500 before:scale-y-0 before:origin-bottom
-                group-hover:before:scale-y-100 before:transition-transform before:duration-300 before:ease-out
-              "></span>
+                group-hover:before:scale-y-100 before:transition-transform before:duration-300 before:ease-out"
+                ></span>
             </a>
-          </Button>
-          <Button asChild variant="link">
-            <a href="/about" class="
-              text-xl font-bold 
+        </Button>
+        <Button asChild variant="link">
+            <a
+                href="/blog"
+                class="text-xl font-bold
               relative
               inline-block
-              group
-            ">
-              About
-              <span class="
-                absolute left-0 bottom-[-8px] 
-                w-full h-1 
-                bg-teal-500 
+              group"
+            >
+                Blog
+                <span
+                    class="absolute left-0 bottom-[-8px]
+                w-full h-1
+                bg-teal-500
                 origin-top
                 scale-y-0
                 group-hover:scale-y-100
                 transition-transform duration-300 ease-linear
                 before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0
                 before:bg-teal-500 before:scale-y-0 before:origin-bottom
-                group-hover:before:scale-y-100 before:transition-transform before:duration-300 before:ease-out
-              "></span>
+                group-hover:before:scale-y-100 before:transition-transform before:duration-300 before:ease-out"
+                ></span>
             </a>
-          </Button>
+        </Button>
+        <Button asChild variant="link">
+            <a
+                href="/about"
+                class="text-xl font-bold
+              relative
+              inline-block
+              group"
+            >
+                About
+                <span
+                    class="absolute left-0 bottom-[-8px]
+                w-full h-1
+                bg-teal-500
+                origin-top
+                scale-y-0
+                group-hover:scale-y-100
+                transition-transform duration-300 ease-linear
+                before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0
+                before:bg-teal-500 before:scale-y-0 before:origin-bottom
+                group-hover:before:scale-y-100 before:transition-transform before:duration-300 before:ease-out"
+                ></span>
+            </a>
+        </Button>
     </nav>
 
-    <button id="menu-toggle" class="sm:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-        </svg>
-    </button>
+    <div class="flex items-center space-x-4 sm:hidden">
+        <ThemeToggle />
+        <button id="menu-toggle" class="z-50">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+    </div>
 </header>
 
-<div id="mobile-menu" class="fixed inset-0 bg-background/95 z-40 hidden flex-col items-center justify-center sm:hidden">
-    <button id="close-menu" class="absolute top-4 right-4">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-    </button>
-    <div class="search-wrapper mb-4">
-        <Search
-            id="mobile-search"
-            className="pagefind-ui pagefind-ui--custom"
-            uiOptions={{ showImages: false }}
-        />
-    </div>
-    <Button asChild variant="link">
-        <a href="/" class="text-xl font-bold mb-4">Home</a>
-    </Button>
-    <Button asChild variant="link">
-        <a href="/tags" class="text-xl font-bold mb-4">Tags</a>
-    </Button>
-    <Button asChild variant="link">
-        <a href="/blog" class="text-xl font-bold mb-4">Blog</a>
-    </Button>
-    <Button asChild variant="link">
-        <a href="/about" class="text-xl font-bold mb-4">About</a>
-    </Button>
-    <div class="mt-4">
-        <ThemeToggle />
+<div
+    id="mobile-menu"
+    class="fixed inset-0 bg-background/95 z-40 hidden items-center justify-center sm:hidden"
+>
+    <div class="flex flex-col items-center w-full max-w-sm mx-auto">
+        <div class="search-wrapper mb-8 w-full">
+            <Search
+                id="mobile-search"
+                className="pagefind-ui pagefind-ui--custom"
+                uiOptions={{ showImages: false }}
+            />
+        </div>
+        <Button asChild variant="link" class="mb-4 w-full">
+            <a href="/" class="text-xl font-bold">Home</a>
+        </Button>
+        <Button asChild variant="link" class="mb-4 w-full">
+            <a href="/tags" class="text-xl font-bold">Tags</a>
+        </Button>
+        <Button asChild variant="link" class="mb-4 w-full">
+            <a href="/blog" class="text-xl font-bold">Blog</a>
+        </Button>
+        <Button asChild variant="link" class="mb-4 w-full">
+            <a href="/about" class="text-xl font-bold">About</a>
+        </Button>
     </div>
 </div>
 
@@ -167,21 +182,19 @@ import ThemeToggle from "./ThemeToggle.astro";
 
             const updateHeader = () => {
                 const currentScrollY = window.scrollY;
-                if (currentScrollY > lastScrollY) {
-                    header.classList.add("-translate-y-full");
-                    header.classList.remove("translate-y-0");
-                    if (stickyWrapper) {
-                        stickyWrapper.style.setProperty("--sticky-top", "0px");
+                if (window.innerWidth > 640) {
+                    // 只在大屏幕上应用
+                    if (currentScrollY > lastScrollY + 10) {
+                        // 添加阈值
+                        header.classList.add("-translate-y-full");
+                        header.classList.remove("translate-y-0");
+                    } else if (currentScrollY < lastScrollY - 10) {
+                        header.classList.add("translate-y-0");
+                        header.classList.remove("-translate-y-full");
                     }
                 } else {
                     header.classList.add("translate-y-0");
                     header.classList.remove("-translate-y-full");
-                    if (stickyWrapper) {
-                        stickyWrapper.style.setProperty(
-                            "--sticky-top",
-                            "var(--header-height)",
-                        );
-                    }
                 }
                 lastScrollY = currentScrollY;
             };
@@ -194,19 +207,22 @@ import ThemeToggle from "./ThemeToggle.astro";
     }
 
     function setupMobileMenu() {
-        const menuToggle = document.getElementById('menu-toggle');
-        const closeMenu = document.getElementById('close-menu');
-        const mobileMenu = document.getElementById('mobile-menu');
+        const menuToggle = document.getElementById("menu-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
 
-        if (menuToggle && closeMenu && mobileMenu) {
-            menuToggle.addEventListener('click', () => {
-                mobileMenu.classList.remove('hidden');
-                mobileMenu.classList.add('flex');
-            });
-
-            closeMenu.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                mobileMenu.classList.remove('flex');
+        if (menuToggle && mobileMenu) {
+            menuToggle.addEventListener("click", () => {
+                if (mobileMenu.classList.contains("hidden")) {
+                    mobileMenu.classList.remove("hidden");
+                    mobileMenu.classList.add("flex");
+                    menuToggle.innerHTML =
+                        '<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>';
+                } else {
+                    mobileMenu.classList.add("hidden");
+                    mobileMenu.classList.remove("flex");
+                    menuToggle.innerHTML =
+                        '<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>';
+                }
             });
         }
     }
@@ -218,22 +234,25 @@ import ThemeToggle from "./ThemeToggle.astro";
 </script>
 
 <style>
-  .search-wrapper :global(.pagefind-ui) {
-    @apply h-12 overflow-visible;
-  }
-  .search-wrapper :global(.pagefind-ui .pagefind-ui__search-input) {
-    @apply h-12 ;
-  }
-  .search-wrapper :global(.pagefind-ui .pagefind-ui__search-clear) {
-    @apply h-11 bg-transparent !important;
-  }
-  .search-wrapper :global(.pagefind-ui .pagefind-ui__drawer) {
-    @apply  bg-background text-foreground  pl-5 pr-2 rounded-md shadow-md h-auto !important;
-  }
-  .search-wrapper :global(.pagefind-ui .pagefind-ui__message) {
-    @apply  pt-0 !important;
-  }
-  .search-wrapper :global(.pagefind-ui .pagefind-ui__result-link) {
-    @apply  text-foreground !important;
-  }
+    .search-wrapper :global(.pagefind-ui) {
+        @apply h-12 overflow-visible;
+    }
+    .search-wrapper :global(.pagefind-ui .pagefind-ui__search-input) {
+        @apply h-12;
+    }
+    .search-wrapper :global(.pagefind-ui .pagefind-ui__search-clear) {
+        @apply h-11 bg-transparent !important;
+    }
+    .search-wrapper :global(.pagefind-ui .pagefind-ui__drawer) {
+        @apply bg-background text-foreground  pl-5 pr-2 rounded-md shadow-md h-auto !important;
+    }
+    .search-wrapper :global(.pagefind-ui .pagefind-ui__message) {
+        @apply pt-0 !important;
+    }
+    .search-wrapper :global(.pagefind-ui .pagefind-ui__result-link) {
+        @apply text-foreground !important;
+    }
+    .search-wrapper :global(.pagefind-ui .pagefind-ui__search-input) {
+        @apply bg-background/20 !important;
+    }
 </style>

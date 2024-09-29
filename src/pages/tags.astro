@@ -19,7 +19,7 @@ const tags = Object.entries(tagCounts).map(([tag, count]) => ({ tag, count }));
 
 ---
 
-<Layout title="Dirtsai's Blog">
+<Layout title="Dirtsai's Blog" data-pagefind-ignore>
     <div class="flex flex-col mt-24 w-full lg:flex-row px-2 lg:px-2 max-w-7xl  mx-auto  min-w-[320px]">
         <div class="w-full p-1 lg:w-3/4 mb-6 lg:mb-0 lg:mr-3 transition-all duration-300 ease-linear ">
             <TagCard tags={tags} class="h-full"/>

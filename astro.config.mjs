@@ -9,9 +9,14 @@ import pagefind from "astro-pagefind";
 import react from '@astrojs/react';
 import vercel from '@astrojs/vercel/serverless';
 export default defineConfig({
-  integrations: [tailwind({
-    applyBaseStyles: false,
-}), mdx(), react(),pagefind()],
+  integrations: [
+    tailwind({
+      applyBaseStyles: false,
+    }), 
+    mdx(), 
+    react(),
+    pagefind(),
+  ],
   redirects: {
     '/blog': '/blog/1'
   },

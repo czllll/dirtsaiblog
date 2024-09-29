@@ -37,7 +37,7 @@ const readingTimeStats = getReadingTime(post.body);
 
 ---
 
-<Layout title={post.data.title}>
+<Layout title={post.data.title} data-pagefind-body>
     <div class="relative w-full h-[50vh] min-h-[400px] overflow-hidden">
         <img
             src={post.data.image}
@@ -53,7 +53,6 @@ const readingTimeStats = getReadingTime(post.body);
             <div class="flex items-center space-x-4 text-sm">
                 <span>{formatDate(post.data.date)</span>
                 <span>{Math.ceil(readingTimeStats.minutes)} mins read</span>
-                <span>1 views</span>
                 <span>
                         {
                             post.data.tags.map((tag, index) => (

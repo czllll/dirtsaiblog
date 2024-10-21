@@ -19,7 +19,7 @@ import ThemeToggle from "./ThemeToggle.astro";
         <div class="search-wrapper">
             <Search
                 id="search"
-                className="pagefind-ui pagefind-ui--custom text-foreground"
+                className="pagefind-ui pagefind-ui--custom"
                 uiOptions={{ showImages: false }}
             />
         </div>
@@ -238,13 +238,13 @@ import ThemeToggle from "./ThemeToggle.astro";
         @apply h-12 overflow-visible;
     }
     .search-wrapper :global(.pagefind-ui .pagefind-ui__search-input) {
-        @apply h-12;
+        @apply h-12 bg-background text-foreground !important;
     }
     .search-wrapper :global(.pagefind-ui .pagefind-ui__search-clear) {
         @apply h-11 bg-transparent !important;
     }
     .search-wrapper :global(.pagefind-ui .pagefind-ui__drawer) {
-        @apply bg-background text-foreground  pl-5 pr-2 rounded-md shadow-md h-auto !important;
+        @apply bg-background/60 text-foreground  pl-5 pr-2 rounded-md shadow-md h-auto !important;
     }
     .search-wrapper :global(.pagefind-ui .pagefind-ui__message) {
         @apply pt-0 !important;
@@ -252,7 +252,5 @@ import ThemeToggle from "./ThemeToggle.astro";
     .search-wrapper :global(.pagefind-ui .pagefind-ui__result-link) {
         @apply text-foreground !important;
     }
-    .search-wrapper :global(.pagefind-ui .pagefind-ui__search-input) {
-        @apply bg-background/20 !important;
-    }
+
 </style>

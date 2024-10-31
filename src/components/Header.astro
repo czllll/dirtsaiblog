@@ -6,9 +6,9 @@ import ThemeToggle from "./ThemeToggle.astro";
 ---
 
 <header
-    class="flex items-center justify-between p-2 bg-background/30 px-4 sm:px-8
+    class="flex items-center justify-between p-2 bg-background/50 px-4 sm:px-8
                 fixed top-0 left-0 right-0 z-50
-                transition-all duration-300 ease-linear shadow-md rounded-lg"
+                transition-all duration-300 ease-linear shadow-sm"
 >
     <a href="/" class="flex items-center space-x-2 sm:space-x-4">
         <img src="/veg.png" alt="Logo" class="h-8 w-8 sm:h-10 sm:w-10" />
@@ -30,90 +30,52 @@ import ThemeToggle from "./ThemeToggle.astro";
                 class="text-xl font-bold
               relative
               inline-block
-              group"
+              group  hover:text-yellow-700"
+              
             >
                 Home
-                <span
-                    class="absolute left-0 bottom-[-8px]
-                w-full h-1
-                bg-teal-500
-                origin-top
-                scale-y-0
-                group-hover:scale-y-100
-                transition-transform duration-300 ease-linear
-                before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0
-                before:bg-teal-500 before:scale-y-0 before:origin-bottom
-                group-hover:before:scale-y-100 before:transition-transform before:duration-300 before:ease-out"
-                ></span>
+
             </a>
         </Button>
         <Button asChild variant="link">
             <a
-                href="/tags"
+                href="/archive"
                 class="text-xl font-bold
               relative
               inline-block
-              group"
+              group  hover:text-yellow-700"
+              
             >
-                Tags
-                <span
-                    class="absolute left-0 bottom-[-8px]
-                w-full h-1
-                bg-teal-500
-                origin-top
-                scale-y-0
-                group-hover:scale-y-100
-                transition-transform duration-300 ease-linear
-                before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0
-                before:bg-teal-500 before:scale-y-0 before:origin-bottom
-                group-hover:before:scale-y-100 before:transition-transform before:duration-300 before:ease-out"
-                ></span>
+                Archive
+
             </a>
         </Button>
         <Button asChild variant="link">
             <a
-                href="/blog"
+                href="/project"
                 class="text-xl font-bold
               relative
               inline-block
-              group"
+              group
+              hover:text-yellow-700"
+              
             >
-                Blog
-                <span
-                    class="absolute left-0 bottom-[-8px]
-                w-full h-1
-                bg-teal-500
-                origin-top
-                scale-y-0
-                group-hover:scale-y-100
-                transition-transform duration-300 ease-linear
-                before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0
-                before:bg-teal-500 before:scale-y-0 before:origin-bottom
-                group-hover:before:scale-y-100 before:transition-transform before:duration-300 before:ease-out"
-                ></span>
+                Project
+
             </a>
         </Button>
-        <Button asChild variant="link">
+        <Button asChild >
             <a
                 href="/about"
                 class="text-xl font-bold
               relative
               inline-block
-              group"
+              group
+              hover:text-yellow-700"
+              
             >
                 About
-                <span
-                    class="absolute left-0 bottom-[-8px]
-                w-full h-1
-                bg-teal-500
-                origin-top
-                scale-y-0
-                group-hover:scale-y-100
-                transition-transform duration-300 ease-linear
-                before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0
-                before:bg-teal-500 before:scale-y-0 before:origin-bottom
-                group-hover:before:scale-y-100 before:transition-transform before:duration-300 before:ease-out"
-                ></span>
+
             </a>
         </Button>
     </nav>
@@ -154,10 +116,10 @@ import ThemeToggle from "./ThemeToggle.astro";
             <a href="/" class="text-xl font-bold">Home</a>
         </Button>
         <Button asChild variant="link" className="mb-4 w-full">
-            <a href="/tags" class="text-xl font-bold">Tags</a>
+            <a href="/archive" class="text-xl font-bold">Archive</a>
         </Button>
         <Button asChild variant="link" className="mb-4 w-full">
-            <a href="/blog" class="text-xl font-bold">Blog</a>
+            <a href="/project" class="text-xl font-bold">Project</a>
         </Button>
         <Button asChild variant="link" className="mb-4 w-full">
             <a href="/about" class="text-xl font-bold">About</a>

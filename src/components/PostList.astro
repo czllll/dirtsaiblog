@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import Post from "../components/Post.astro";
+import Post from "@/components/PostCard.astro";
 type Props = {
     posts: CollectionEntry<'posts'>[],
     tag?: string
@@ -16,7 +16,7 @@ const sortedPosts = filteredPosts.sort((a, b) => {
 ---
 
 <div
-    class="grid grid-cols-1 gap-x-16 gap-y-5 max-md:grid-cols-1 mb-6"
+    class="px-6 grid grid-cols-1 gap-x-16 gap-y-6 max-md:grid-cols-1 mb-6"
 >
     {sortedPosts.map(post => <Post post={post} />)}
 </div>

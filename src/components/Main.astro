@@ -17,14 +17,14 @@ const {currentPage, lastPage: totalPages } = page;
   class="flex flex-col mt-24 lg:flex-row px-2 lg:px-2 max-w-7xl mx-auto min-w-[320px]"
 >
   <div
-    class="w-full lg:w-3/4 p-1 mb-6 lg:mb-0 lg:mr-3 transition-all duration-300 ease-linear"
+    class="w-full lg:w-4/5 p-1 mb-6 lg:mb-0 lg:mr-3 transition-all duration-300 ease-linear"
   >
     <PostList posts={page.data} />
     
     <PaginationNa currentPage={currentPage} totalPages={totalPages} baseUrl="/blog"/>
   </div>
   <div
-    class="w-full lg:w-1/4 p-1 overflow-hidden transition duration-300 ease-linear
+    class="w-full pt-4 lg:w-1/5 overflow-hidden transition duration-300 ease-linear
                 max-h-0 opacity-0 lg:max-h-[1000px] lg:opacity-100"
   >
     <ProfileCard />

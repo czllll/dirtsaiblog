@@ -1,0 +1,29 @@
+---
+import { getCollection } from "astro:content";
+import ProfileCard from "@/components/ProfileCard.astro";
+import SideTags from "@/components/SideTags.astro";
+const posts = await getCollection("posts");
+import '../styles/globals.css'
+import Layout from "@/layouts/Layout.astro";
+
+---
+<Layout title="Dirtsai's Blog">
+
+    <main
+    class="flex flex-col mt-24 lg:flex-row px-2 lg:px-2 max-w-7xl mx-auto min-w-[320px]"
+    >
+    <div
+        class="w-full lg:w-4/5 p-1 mb-6 lg:mb-0 lg:mr-3 transition-all duration-300 ease-linear"
+    >
+    archive生生世世生生世世生生世世生生世世生生世世生生世世生生世世生生世世生生世世生生世世生生世世生生世世生生世世生生世世生生世世生生世世生生世世生生世世生生世世生生世世生生世世生生世世生生世世事实上
+
+    </div>
+    <div
+        class="w-full pt-4 lg:w-1/5 overflow-hidden transition duration-300 ease-linear
+                    max-h-0 opacity-0 lg:max-h-[1000px] lg:opacity-100"
+    >
+        <ProfileCard />
+        <SideTags posts={posts}/>
+    </div>
+    </main>
+</Layout>

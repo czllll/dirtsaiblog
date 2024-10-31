@@ -1,8 +1,7 @@
 ---
 title: "由obsidian的git插件push失败后引申的ssh相关的问题"
 description: "本文探讨了在使用 Obsidian 的 Git 插件时遇到的 SSH 连接问题。通过深入分析 SSH 的工作原理、密钥管理和认证过程，文章提供了解决 SSH 连接中频繁要求输入 passphrase 的方案，详细解释了如何配置 SSH Agent 实现自动加载密钥，避免重复输入密码。"
-date: 12/08/2024
-image: "https://cdn.pixabay.com/photo/2024/05/22/16/37/seagull-8781110_1280.jpg"
+date: 2024-08-12
 tags: ["ssh" ,"问题"]
 ---
 # 问题由来

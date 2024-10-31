@@ -1,8 +1,7 @@
 ---
 title: "synchronized和volatile-从单例的实现说起"
 description: "从Java实现单例的方式说起，穿插介绍了Synchronized，volatile等关键字的说明，最后介绍了两种更巧妙的单例模式实现"
-date: 10/12/2023
-image: "https://cdn.pixabay.com/photo/2023/12/15/22/37/mountains-8451480_1280.jpg"
+date: 2023-12-10
 tags: ["设计模式" ,"并发"]
 ---
 ## 单例模式的实现

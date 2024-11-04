@@ -2,28 +2,60 @@
 import { getCollection } from "astro:content";
 import ProfileCard from "@/components/ProfileCard.astro";
 import SideTags from "@/components/SideTags.astro";
-const posts = await getCollection("posts");
 import '../styles/globals.css'
 import Layout from "@/layouts/Layout.astro";
+const posts = (await getCollection("posts")).map(post => ({
+    title: post.data.title,
+    date: new Date(post.data.date).toISOString(),
+    slug: post.slug
+}));
 
+const postsByYear = posts.reduce((acc, post) => {
+    const year = new Date(post.date).getFullYear();
+    if (!acc[year]) {
+        acc[year] = [];
+    }
+    acc[year].push(post);
+    return acc;
+}, {} as Record<number, { title: string; date: string; slug: string }[]>);
 ---
 <Layout title="Dirtsai's Blog">
 
-    <main
-    class="flex flex-col mt-24 lg:flex-row px-2 lg:px-2 max-w-7xl mx-auto min-w-[320px]"
-    >
-    <div
-        class="w-full lg:w-4/5 p-1 mb-6 lg:mb-0 lg:mr-3 transition-all duration-300 ease-linear"
-    >
-    archive生生世世生生世世生生世世生生世世生生世世生生世世生生世世生生世世生生世世生生世世生生世世生生世世生生世世生生世世生生世世生生世世生生世世生生世世生生世世生生世世生生世世生生世世生生世世事实上
+    <main class="w-full flex flex-col mt-24 lg:flex-row px-2 lg:px-2 max-w-7xl mx-auto min-w-[320px]">
 
-    </div>
-    <div
-        class="w-full pt-4 lg:w-1/5 overflow-hidden transition duration-300 ease-linear
-                    max-h-0 opacity-0 lg:max-h-[1000px] lg:opacity-100"
-    >
-        <ProfileCard />
-        <SideTags posts={posts}/>
-    </div>
+        <div class="w-full lg:w-4/5 p-1 mb-6 lg:mb-0 transition-all duration-300 ease-linear">
+            <div class="flex text-2xl px-6 font-bold">
+              Archive  
+            </div>
+            <div class="border-b border-gray-300 my-4 mr-10"></div>
+            <div class="px-10">
+                {Object.keys(postsByYear)
+                    .map(year => Number(year)) 
+                    .sort((a, b) => b - a) 
+                    .map(year => (
+                      <div>
+                        <h2 class="text-2xl my-4 text-yellow-700">{year}</h2>
+                        <ul class="space-y-4">
+                          {postsByYear[year]
+                            .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+                            .map((post: { date: string | number | Date; slug: string; title: string }) => (
+                              <li class="flex items-center text-xl">
+                                <span class="text-gray-500 w-32">{new Date(post.date).toLocaleDateString()}</span>
+                                <a href={`/blog/${post.slug}`} class="hover:text-yellow-700">{post.title}</a>
+                              </li>
+                            ))}
+                        </ul>
+                      </div>
+                    ))}
+                  
+            </div>
+        </div>
+        <div
+            class="w-full pt-4 lg:w-1/5 transition duration-300 ease-linear
+                        max-h-0 opacity-0 lg:max-h-[1000px] lg:opacity-100"
+        >
+            <ProfileCard />
+            <SideTags posts={posts}/>
+        </div>
     </main>
 </Layout>

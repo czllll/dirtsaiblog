@@ -4,7 +4,7 @@ import { getCollection } from 'astro:content';
 import '@/styles/globals.css'
 import PostList from '@/components/PostList.astro';
 import PostfileCard from '@/components/ProfileCard.astro'
-import H1 from '@/components/H1.astro';
+import AboutCard from '@/components/AboutCard.astro';
 const posts = await getCollection("posts")
 export const getStaticPaths = async () => {
   const allPosts = await getCollection('posts');
@@ -19,26 +19,23 @@ export const getStaticPaths = async () => {
 };
 const { tag } =  Astro.params
 ---
-<Layout title="Blog">
+<Layout title="Dirtsai's Blog">
     
-    <div class="flex flex-col mt-24  lg:flex-row max-w-7xl px-2 lg:px-2 max-w-7xl  mx-auto  min-w-[320px]">
-        
-        <div class="w-full lg:w-4/5  p-1 mb-6 lg:mb-0 lg:mr-3 transition-all duration-300 ease-linear">
-            <div class="flex text-2xl px-6">
-                Tag - 
-                <div class="mx-2 px-2 rounded-md border border-gray-600 text-gray-600 hover:border-yellow-700 hover:text-yellow-700 transition-colors duration-200">
-                    {`${tag}`}
-                </div>
-                
-            </div>
-            <div class="border-b border-gray-300 py-2"></div>
-
-            <PostList posts={posts} tag={tag}/>
+      <div class="flex flex-col max-w-7xl mt-8 lg:flex-row lg:pt-20 px-2 w-[85vw] mx-auto min-w-[320px]">
+        <div class="w-full lg:w-4/5  p-1 mb-6 lg:mb-0 transition-all duration-300 ease-linear">
+          <div class="flex text-2xl px-6">
+              Tag - 
+              <div class="mx-2 px-2 rounded-md border border-gray-600 text-gray-600 hover:border-yellow-700 hover:text-yellow-700 transition-colors duration-200">
+                  {`${tag}`}
+              </div>
+              
           </div>
-         
-        <div class="w-full lg:w-1/5 p-1 overflow-hidden transition duration-300 ease-linear
-                    max-h-0 opacity-0 lg:max-h-[1000px] lg:opacity-100">
-          <PostfileCard />
+          <div class="border-b border-gray-300 py-2"></div>
+          <PostList posts={posts} tag={tag}/>
         </div>
-      </div>
+        <div class="w-full lg:w-1/5 transition duration-300 ease-linear
+                max-h-0 opacity-0 lg:max-h-[1000px] lg:opacity-100">
+            <PostfileCard />
+        </div>
+    </div>
 </Layout>

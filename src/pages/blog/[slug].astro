@@ -42,10 +42,10 @@ const readingTimeStats = getReadingTime(post.body);
 
 <Layout title={post.data.title} data-pagefind-body>
 
-    <div class="flex flex-col max-w-7xl mt-8 lg:flex-row px-2 w-[85vw] mx-auto min-w-[320px]">
-        <div class="w-full lg:w-4/5 px-6 py-4 transition-all duration-300 ease-linear">
-            <div class="flex w-full min-h-[100px] overflow-hidden">
-                <div class="pb-6 mt-20 text-foreground">
+    <div class="flex flex-col max-w-7xl mt-8 lg:flex-row pt-20 px-2 w-[85vw] mx-auto min-w-[320px]">
+        <div class="w-full lg:w-4/5 p-4 pr-10 mb-6 transition-all duration-300 ease-linear">
+            <div class="flex w-full min-h-[100px]">
+                <div class="pb-6 text-foreground">
                     <h1 class="text-2xl font-bold mb-4">{post.data.title}</h1>
                     <div class="flex items-center space-x-4 text-sm">
                         <div class="flex">
@@ -95,7 +95,7 @@ const readingTimeStats = getReadingTime(post.body);
 
         </div>
 
-        <div class="w-full lg:w-1/5  pt-20 transition-all duration-300 ease-linear">
+        <div class="w-full lg:w-1/5  transition-all duration-300 ease-linear">
                 <ProfileCard />
             <div id="sticky-wrapper" class="transition-[top] duration-300 ease-linear sticky top-[var(--sticky-top,0px)] pt-11">
                 <SideContent post={post}/>

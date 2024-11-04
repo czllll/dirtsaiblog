@@ -28,7 +28,7 @@ export function getTagUrl(tag: string | number | boolean) {
 const description = post.data.description || post.body;
 
 ---
-<Card className="flex flex-row md:flex-row overflow-hidden  bg-background/0 border-0 shadow-none py-4">
+<Card className="flex flex-col md:flex-row overflow-hidden  bg-background/0 border-0 shadow-none py-4">
   <div class="flex flex-col w-full  justify-center">
     <CardHeader className="py-2">
       <a href={`/blog/${post.slug}`} class="hover:text-yellow-800">
@@ -37,13 +37,16 @@ const description = post.data.description || post.body;
     </CardHeader>
     <CardContent>
       <p class="text-sm text-muted-foreground flex items-center">
-        <div class="flex items-center space-x-2">
-          <div class="h-5 w-5 flex justify-center items-center">
-            <CalendarDays />
+        <div class="flex flex-col md:flex-row items-center space-x-2">
+          <div class="flex">
+            <div class="h-5 w-5 flex justify-center items-center">
+              <CalendarDays />
+            </div>
+            <div>
+              {formatDateWithSuffix(post.data.date)}
+            </div>
           </div>
-          <div>
-            {formatDateWithSuffix(post.data.date)}
-          </div>
+
           <div class="flex ml-2 space-x-2">
             {post.data.tags.map((tag, index) => (
               <a 
@@ -60,11 +63,11 @@ const description = post.data.description || post.body;
       
       <div class="mt-3 text-md line-clamp-2 text-black/70">
 
-        <span set:html={description}></span>
+        <span set:html={description} class="text-foreground"></span>
       </div>
     </CardContent>
   </div>
-  <div class="px-8 mx-8 flex items-end">
+  <div class="px-8 mx-8 flex items-end mt-6 md:mt-0">
     <a href={`/blog/${post.slug}`}>
       <Button className="p-2 rounded-md border bg-background-0  border-gray-600 text-gray-600  hover:border-yellow-700 hover:text-yellow-700 hover:bg-background-0 transition-colors duration-200">
         Read more

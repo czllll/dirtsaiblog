@@ -2,7 +2,7 @@
 title: "[听]Building AGI, Alignment, Spies, Microsoft, & Enlightenment"
 description: "openAI 联合创始人在2023年3月27日在Dwarkesh Podcast关于LLM的访谈记录"
 date: 2024-10-15
-tags: ["poscast", "LLM"]
+tags: ["podcast", "LLM"]
 ---
 链接：[Ilya Sutskever (OpenAI Chief Scientist) - Building AGI, Alignment, Spies, Microsoft, & Enlightenment - YouTube](https://www.youtube.com/watch?v=Yf1o0TQzry8)
 

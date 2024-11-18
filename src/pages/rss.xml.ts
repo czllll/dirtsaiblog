@@ -11,13 +11,12 @@ export async function GET(context: { site: any; }) {
     site: context.site,
     items: await Promise.all(
         posts.map(async (post) => {
-          const { Content } = await post.render();
-          const content = Content ? await marked(Content.toString()) : '';
+          const content = await post.body;
           return {
             title: post.data.title,
             pubDate: post.data.date,
             description: post.data.description,
-            content: sanitizeHtml(content),
+            content: content || post.data.description,
             link: `/blog/${post.slug}/`,
           };
         })

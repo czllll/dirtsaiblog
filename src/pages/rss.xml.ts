@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import sanitizeHtml from 'sanitize-html';
 import { marked } from 'marked';
 
-export async function GET(context) {
+export async function GET(context: { site: any; }) {
     const posts = await getCollection("posts");
     return rss({
     title: "Dirtsai's blog",

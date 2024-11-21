@@ -52,7 +52,7 @@ const description = post.data.description || post.body;
               <a 
                 
                 href={getTagUrl(tag)} 
-                class="inline-block px-2 py-0 text-sm rounded-md border border-gray-600 text-gray-600 hover:border-yellow-700 hover:text-yellow-700 transition-colors duration-200"
+                class="inline-block px-2 py-0 text-sm rounded-md border border-gray-600  dark:border-gray-200 dark:text-gray-200 text-gray-600 hover:border-yellow-700 hover:text-yellow-700 transition-colors duration-200"
               >
                 {tag}
               </a>
@@ -69,7 +69,7 @@ const description = post.data.description || post.body;
   </div>
   <div class="px-8 mx-8 flex items-end mt-6 md:mt-0">
     <a href={`/blog/${post.slug}`}>
-      <Button className="p-2 rounded-md border bg-background-0  border-gray-600 text-gray-600  hover:border-yellow-700 hover:text-yellow-700 hover:bg-background-0 transition-colors duration-200">
+      <Button className="p-2 rounded-md border bg-background-0  dark:border-gray-200 dark:text-gray-200 border-gray-600 text-gray-600  hover:border-yellow-700 hover:text-yellow-700 hover:bg-background-0 transition-colors duration-200">
         Read more
       </Button>
     </a>

@@ -40,7 +40,7 @@ const postsByYear = posts.reduce((acc, post) => {
                             .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
                             .map((post: { date: string | number | Date; slug: string; title: string }) => (
                               <li class="flex items-center text-xl">
-                                <span class="text-gray-500 w-32">{new Date(post.date).toLocaleDateString()}</span>
+                                <span class="text-gray-500 w-32">{new Date(post.date).toISOString().split('T')[0]}</span>
                                 <a href={`/blog/${post.slug}`} class="hover:text-yellow-700">{post.title}</a>
                               </li>
                             ))}

@@ -1,13 +1,10 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-
 import tailwind from '@astrojs/tailwind';
-
 import mdx from '@astrojs/mdx';
 import pagefind from "astro-pagefind";
-
 import react from '@astrojs/react';
-import vercel from '@astrojs/vercel/serverless';
+
 export default defineConfig({
   integrations: [
     tailwind({
@@ -20,10 +17,6 @@ export default defineConfig({
   redirects: {
     '/blog': '/blog/1'
   },
-  output: 'hybrid',
-  adapter: vercel({
-    webAnalytics: { enabled: true }
-  }),
+  output: 'static',
   site: 'https://dirtsaiblog.vercel.app/',
-
 });

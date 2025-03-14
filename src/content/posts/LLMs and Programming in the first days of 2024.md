@@ -1,5 +1,5 @@
 ---
-title: "读: LLMs and Programming in the first days of 2024"
+title: "LLMs and Programming in the first days of 2024"
 description: "Redis作者关于LLM与编程在年初的一些看法"
 date: 2024-09-18
 tags: ["blog-reading","LLM"]

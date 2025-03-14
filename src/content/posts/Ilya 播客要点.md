@@ -1,5 +1,5 @@
 ---
-title: "听: Building AGI, Alignment, Spies, Microsoft, & Enlightenment"
+title: "Building AGI, Alignment, Spies, Microsoft, & Enlightenment"
 description: "openAI 联合创始人在2023年3月27日在Dwarkesh Podcast关于LLM的访谈记录"
 date: 2024-10-15
 tags: ["podcast", "LLM"]

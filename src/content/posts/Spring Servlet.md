@@ -1,20 +1,23 @@
 ---
-title: Spring Servlet
+title: Spring Servlet Recap
 description: Java Servlets evolved as an efficient, standardized way to handle web requests in Java, replacing earlier CGI solutions and serving as the foundation for Spring MVC's architecture through the DispatcherServlet.
 date: 2024-12-14
 tags:
   - java
   - springboot
 ---
-
 ## Servlet
+
 A servlet is a Java class that handles HTTP requests and generate responses.
-![](https://pub-f9f682177ca44c3e860a71f58008aecd.r2.dev/image-20241213223146486.png)
+![](https://img.dirtsai.work/image-20241213223146486.png)
+
 * The servlet container converts HTTP requests into a `HttpServletRequest` object and prepare `HttpServletResponse` object.
 * And these objects are delivered to a web component. Which can interact with beans or database to generate dynamic content.
 * The web component can fill the `HttpServletResponse` object or pass it to another component to fill it.
 * The servlet container ultimately converts the `HttpServletResponse` object into HTTP response and the web server returns it to the client.
+
 ### code
+
 ```java
 package jakarta.servlet;
 
@@ -48,7 +51,8 @@ public interface Servlet {
     }
 ```
 
- ### lifecycle
+### lifecycle
+
 * an instance of servlet does not exist, the servlet container:
   * load the servlet class
   * create an instance of servlet class
@@ -70,7 +74,7 @@ Early server-side extensions came in different forms:
 
 CGI (Common Gateway Interface) is a standardized protocol that defines how web servers communicate with external applications or scripts. These CGI programs can be written in any programming language (like C, C++, Perl, Python, etc.) and are responsible for processing requests and generating dynamic content.
 
-![image-20241214143933871](https://pub-f9f682177ca44c3e860a71f58008aecd.r2.dev/image-20241214143933871.png)
+![image-20241214143933871](https://img.dirtsai.work/image-20241214143933871.png)
 
 We can see that the web server need to pass every request to the CGI applications to get the response from it. And the server has to create and destroy the process for every request.
 
@@ -133,6 +137,3 @@ A HTTP request first arrives at filters and then the DispatcherServlet. Multiple
 
 Reference:
 [Introduction to Java Servlets - GeeksforGeeks](https://www.geeksforgeeks.org/introduction-java-servlets/)
-
-
-
